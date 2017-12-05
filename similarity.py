@@ -20,10 +20,10 @@ def pre_process(word):
     return word
 
 
-def run(string1, string2):
+def feature(string1, string2):
     """ main function """
-    words1 = [pre_process(word) for word in string1.split()]
-    words2 = [pre_process(word) for word in string2.split()]
+    words1 = [pre_process(word.lower()) for word in string1.split()]
+    words2 = [pre_process(word.lower()) for word in string2.split()]
     return sim_by_ed(words1, words2), sim_by_lcs(words1, words2), sim_by_interrogative(words1,
             words2)
     """
@@ -79,4 +79,4 @@ def sim_by_interrogative(words1, words2):
 
 
 if __name__ == '__main__':
-    print(run('what are you doing', 'what are you doing'))
+    print(feature('what are you doing', 'what are you doing'))
